@@ -1,0 +1,625 @@
+%Paul E. West
+
+%\documentclass[xcolor=svgnames]{beamer}
+\documentclass{beamer}
+\usepackage[boxed,vlined,figure]{algorithm2e}
+
+%\usecolortheme[named=FireBrick]{structure}
+%\usecolortheme[named=black]{structure}
+%\usecolortheme{beetle}
+%\usecolortheme{beaver}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\setbeamercolor{background canvas}{bg=Gold!25}
+%\setbeamercolor{background canvas}{bg=Black!100}
+%\setbeamercolor{foreground}{bg=Gold!25}
+%\setbeamercolor{normal text}{fg=green,bg=black}
+%\setbeamercolor*{palette primary}{use=structure,fg=green,bg=black}
+
+\mode<presentation>{
+    \usetheme{Darmstadt}
+    \setbeamercovered{invisible}
+    %\setbeamercovered{transparent}
+    \setbeamercolor*{palette primary}{use=structure,fg=white,bg=blue}
+    \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=blue}
+    \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=blue}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+%\usepackage{epsfig}
+\usepackage{ulem}
+\usepackage{color,soul}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{url,hyperref}
+\definecolor{beamer@blendedblue}{rgb}{1,.6,.2}
+%\usepackage{tikz}
+%\usetikzlibrary{shapes}
+%\usetikzlibrary{arrows}
+%\tikzstyle{block}=[draw opacity=0.7, line width=1.4cm]
+\usepackage{listings}
+\lstset{language=Java}
+\lstset{showspaces=false}
+\lstset{showstringspaces=false}
+\lstset{tabsize=4}
+\lstset{basicstyle=\tiny}
+
+
+%\usecolortheme[overlystylish]{albatross}
+%\usecolortheme[]{lily}
+%\usecolortheme[]{albatross}
+%\usecolortheme[]{orchid}
+%\setbeamercolor{normal text}{fg=green!10}
+
+\title{COIN 325: Java I and Elementary Data Structures}
+\author{Dr. Paul E. West}
+
+\institute{
+  Department of Computer Science\\
+  Charleston Southern University
+}
+
+\date{January 16, 2015}
+
+\subject{Software Programming}
+%\keywords{Performance Counters, Multicore}
+
+%\pgfdeclareimage[height=1.0cm]{university-logo}{../imgs/csu-logo}
+\pgfdeclareimage[height=0.75cm]{university-logo}{../imgs/csu-logo}
+%\pgfdeclareimage[height=0.50cm]{university-logo}{../imgs/csu-logo}
+\logo{\pgfuseimage{university-logo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{First Day}
+\subsection{}
+\begin{frame}{About the Professor}
+\begin{itemize}
+\item PhD from Florida State University in Computer Science
+\item Faculty Experience:
+\begin{itemize}
+\item College of Charleston: Adjunct 2013-2014
+\end{itemize}
+\item Work Experience:
+\begin{itemize}
+\item Google (2014): Android Bluetooth/Wi-Fi/Telephony
+\item SPAWAR (2009-2014): Communication systems
+\item DenimGroup (2004-2005): Start-up; web design and network security
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Syllabus}
+Lets go over the syllabus...
+\end{frame}
+
+\section{Introduction}
+\subsection{}
+
+\begin{frame}{Overview}
+\begin{itemize}
+\item We begin by examining a very basic Java program and using it to explore some initial programming concepts
+\item Chapter 1 focuses on
+\begin{itemize}
+\item Introducing the Java programming language
+\item Describing the steps involved in program compilation and execution
+\item Exploring the issues related to problem solving in general
+\item Discussing the activities involved in the software development process
+\item Presenting an overview of object-oriented principles
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Java Programming}
+\begin{itemize}
+\item A computer is made up of hardware and software
+\item hardware - the physical, tangible pieces that support the computing effort
+\item program - a series of instructions that the hardware executes one after another
+\item Programs are sometimes called applications
+\item software - consists of programs and the data those programs use
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Java Programming}
+\begin{itemize}
+\item A programming language specifies the words and symbols that we can use to write a program
+\item A programming language employs a set of rules that dictate how the words and symbols can be put together to form valid program statements
+\item The Java programming language was created by Sun Microsystems, Inc.
+\item It was introduced in 1995 and its popularity grew quickly \url{http://www.tiobe.com/}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Java Programming}
+\begin{itemize}
+\item In the Java programming language
+\begin{itemize}
+\item a program is made up of one or more classes
+\item a class contains one or more methods
+\item a method contains program statements
+\end{itemize}
+\item These terms will be explored in detail throughout the course
+\item A Java application always contains a method called main
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Example Java Program}
+\begin{lstlisting}
+//********************************************************************
+//  Lincoln.java       Java Foundations
+//
+//  Demonstrates the basic structure of a Java application.
+//********************************************************************
+
+public class Lincoln {
+   //-----------------------------------------------------------------
+   //  Prints a presidential quote.
+   //-----------------------------------------------------------------
+   public static void main (String[] args) {
+      System.out.println ("A quote by Abraham Lincoln:");
+
+      System.out.println ("Whatever you are, be a good one.");
+   }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Structure}
+\begin{lstlisting}
+// comments about the class
+
+public class MyProgram { // <- class heading
+
+    // class body
+
+}
+
+/* 
+ * Note that comments can be place almost anywhere and you
+ * may have single line and multi-line comments like in C.
+ */
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Structure}
+\begin{lstlisting}
+// comments about the class
+
+public class MyProgram {
+
+    // comments about a method
+
+    public static void main(String[] args) { // <- method header
+
+        // method body
+
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Comments}
+\begin{itemize}
+\item Comments in a program are called inline documentation
+\item They should be included to explain the purpose of the program and describe processing steps
+\item They do not affect how a program works
+\item Java comments can take three forms
+\end{itemize}
+\begin{lstlisting}
+// this comment runs to the end of the line
+
+/*  this comment runs to the terminating
+    symbol, even across line breaks        */
+
+/** this is a javadoc comment   */
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Identifiers}
+\begin{itemize}
+\item \textit{Identifiers} are the words a programmer uses in a program
+\begin{itemize}
+\item can be made up of letters, digits, the underscore character, and the dollar sign
+\item cannot begin with a digit
+\end{itemize}
+\item Java is \textit{case sensitive} - Total, total, and TOTAL are different identifiers
+\item By convention, programmers use different case styles for different types of identifiers, such as
+\begin{itemize}
+\item title case for class names - Lincoln
+\item upper case for constants - MAXIMUM
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Identifiers}
+\begin{itemize}
+\item Sometimes we choose identifiers ourselves when writing a program (such as Lincoln)
+\item Sometimes we are using another programmer's code, so we use the identifiers that he or she chose (such as println)
+\item Often we use special identifiers called reserved words that already have a predefined meaning in the language
+\item A reserved word cannot be used in any other way
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Reserved Words}
+\begin{itemize}
+\item The Java reserved words
+\end{itemize}
+\begin{columns}[c]
+\column{0.25\textwidth}
+\begin{lstlisting}
+abstract
+assert
+boolean
+break
+byte
+case
+catch
+char
+class
+const
+continue
+default
+do
+double
+\end{lstlisting}
+
+\column{0.25\textwidth}
+\begin{lstlisting}
+else
+enum
+extends
+false
+final
+finally
+float
+for
+goto
+if
+implements
+import
+instanceof
+int
+\end{lstlisting}
+\column{0.25\textwidth}
+\begin{lstlisting}
+interface
+long
+native
+new
+null
+package
+private
+protected
+public
+return
+short
+static
+strictfp
+super
+\end{lstlisting}
+\column{0.25\textwidth}
+\begin{lstlisting}
+switch
+synchronized
+this
+throw
+throws
+transient
+true
+try
+void
+volatile
+while
+\end{lstlisting}
+\end{columns}
+\end{frame}
+
+\begin{frame}{White Space}
+\begin{itemize}
+\item Spaces, blank lines, and tabs are called white space
+\item White space is used to separate words and symbols in a program
+\item Extra white space is ignored
+\item A valid Java program can be formatted many ways
+\item Programs should be formatted to enhance readability, using consistent indentation
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Readability}
+\begin{lstlisting}
+//********************************************************************
+//  Lincoln2.java       Java Foundations
+//
+//  Demonstrates a poorly formatted, though valid, program.
+//********************************************************************
+
+public class Lincoln2{public static void main(String[]args){
+System.out.println("A quote by Abraham Lincoln:");
+System.out.println("Whatever you are, be a good one.");}}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Readability}
+\begin{lstlisting}
+//********************************************************************
+//  Lincoln3.java       Java Foundations
+//
+//  Demonstrates another valid program that is poorly formatted.
+//********************************************************************
+
+          public       class
+     Lincoln3
+   {
+                 public
+   static
+        void
+  main
+        (
+String
+            []
+    args                       ) 
+  {
+  System.out.println        (
+"A quote by Abraham Lincoln:"          )
+  ;        System.out.println
+            (
+       "Whatever you are, be a good one."
+      )
+  ;
+}
+          }
+\end{lstlisting}
+\end{frame}
+
+\section{Program Development}
+\subsection{}
+\begin{frame}{}
+\begin{itemize}
+\item The mechanics of developing a program include several activities
+\begin{itemize}
+\item writing the program in a specific programming language (such as Java)
+\item translating the program into a form that the computer can execute
+\item investigating and fixing various types of errors that can occur
+\end{itemize}
+\item Software tools can be used to help with all parts of this process
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Language Levels}
+\begin{itemize}
+\item There are four main programming language levels
+\begin{enumerate}
+\item machine language
+\item assembly language
+\item high-level language
+\item fourth-generation language
+\end{enumerate}
+\item Each type of CPU has its own specific machine language
+\item The other levels were created to make it easier for a human being to read and write programs
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Programming Languages}
+\begin{itemize}
+\item Each type of CPU executes only a particular machine language
+\item A program must be translated into machine language before it can be executed
+\item A compiler is a software tool which translates source code into a specific target language
+\item Often, that target language is the machine language for a particular CPU type
+\item The Java approach is somewhat different
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Java Translation}
+\begin{itemize}
+\item The Java compiler translates Java source code into a special representation called bytecode
+\item Java bytecode is not the machine language for any traditional CPU
+\item Another software tool, called an interpreter, translates bytecode into machine language and executes it
+\item Therefore the Java compiler is not tied to any particular machine
+\item Java is considered to be architecture-neutral
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Java Translation}
+\includegraphics[width=0.8\textwidth]{../imgs/java-compliation-overview.png}
+\end{frame}
+
+\begin{frame}{Development Environments}
+\begin{itemize}
+\item There are many programs that support the development of Java software, including
+\begin{itemize}
+\item Sun Java Development Kit (JDK)
+\item Eclipse
+\item NetBeans
+\item BlueJ
+\item Your favorite text editor (notepad, notepad++, vi, emacs, nano, etc...)
+\end{itemize}
+\item Though the details of these environments differ, the basic compilation and execution process is essentially the same
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Syntax and Semantics}
+\begin{itemize}
+\item The \textit{syntax} rules of a language define how we can put together symbols, reserved words, and identifiers to make a valid program
+\item The \textit{semantics} of a program statement define what that statement means (its purpose or role in a program)
+\item A program that is syntactically correct is not necessarily logically (semantically) correct
+\item A program will always do what we tell it to do, not what we \underline{meant} to tell it to do
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Errors}
+\begin{itemize}
+\item A program can have three types of errors
+\begin{itemize}
+\item The compiler will find syntax errors and other basic problems (compile-time errors)
+\begin{itemize}
+\item If compile-time errors exist, an executable version of the program is not created
+\end{itemize}
+\item A problem can occur during program execution, such as trying to divide by zero, which causes a program to terminate abnormally (run-time errors)
+\item A program may run, but produce incorrect results, perhaps using an incorrect formula (logical errors) 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic Program Development}
+\includegraphics[width=0.8\textwidth]{../imgs/novice-programming-cycle.png}
+\begin{itemize}
+\item When is it easiest to catch an error?
+\item Software Engineering/process.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problem Solving}
+\begin{itemize}
+\item The purpose of writing a program is to solve a problem
+\item Solving a problem consists of multiple activities
+\begin{itemize}
+\item understand the problem
+\item design a solution
+\item consider alternatives and refine the solution
+\item implement the solution
+\item test the solution $\leftarrow$ this is VITALLY important!!!
+\end{itemize}
+\item These activities are not purely linear - they overlap and interact
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problem Solving}
+\begin{itemize}
+\item The key to designing a solution is breaking it down into manageable pieces
+\item When writing software, we design separate pieces that are responsible for certain parts of the solution
+\item An \textit{object-oriented} approach lends itself to this kind of solution decomposition
+\item We will dissect our solutions into pieces called objects and classes
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Development Activities}
+\begin{itemize}
+\item Any proper software development effort consists of (at least) four basic development activities
+\begin{itemize}
+\item establishing the requirements
+\item creating a design
+\item implementing the design
+\item testing
+\end{itemize}
+\item These steps also are never purely linear and often overlap and interact
+\item Examples: 
+\begin{itemize}
+\item the test cases \textit{should} be considered during design
+\item the quality of the code (which determines how well we test) \textit{should} be considered during requirements
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Development Activities}
+\begin{itemize}
+\item \textit{Software requirements} specify what a program must accomplish
+\item Requirements are expressed in a document called a \textit{functional specification}
+\item A \textit{software design} indicates how a program will accomplish its requirements
+\item \textit{Implementation} is the process of writing the source code that will solve the problem
+\item \textit{Testing} is the act of ensuring that a program will solve the intended problem given all of the constraints under which it must perform
+\end{itemize}
+\end{frame}
+
+\section{Object-Oriented Programming}
+\subsection{}
+\begin{frame}{OOP}
+\begin{itemize}
+\item Java is an object-oriented programming (OOP) language
+\item As the term implies, an object is a fundamental entity in a Java program
+\item Objects can be used effectively to represent real-world entities
+\item For instance, an object might represent a particular employee in a company
+\item Each employee object handles the processing and data management related to that employee
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Objects}
+\begin{itemize}
+\item An object has
+\begin{itemize}
+\item \textit{state}  -  descriptive characteristics 
+\item \textit{behaviors}  -  what it can do (or what can be done to it)
+\end{itemize}
+\item The state of a bank account includes its account number and its current balance
+\item The behaviors associated with a bank account include the ability to make deposits and withdrawals
+\item Note that the behavior of an object might change its state
+\item Also Note: for those coming from C/C++, basically Java allows you to group your functions (behaviors) with a struct (state).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Classes}
+\begin{itemize}
+\item An object is defined by a class
+\item A class is the blueprint of an object
+\item The class uses methods to define the behaviors of the object
+\item The class that contains the main method of a Java program represents the entire program
+\item A class represents a concept, and an object represents the embodiment of that concept
+\item Multiple objects can be created (instantiated) from the same class
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Objects and Classes}
+\includegraphics[width=0.7\textwidth]{../imgs/class-object.png}
+\end{frame}
+
+\begin{frame}{Inheritance}
+\begin{itemize}
+\item One class can be used to derive another via inheritance
+\item Classes can be organized into hierarchies
+\end{itemize}
+\includegraphics[width=0.6\textwidth]{../imgs/inheritance.png} \\
+Why would we do this?
+\end{frame}
+
+\section{Lab Assignment}
+\subsection{}
+\begin{frame}{}
+\begin{itemize}
+\item Login into your machine
+\item Write and TEST a simple Hello World application
+\item Submit via Blackboard
+\item This is to test building a program on your machine and submitting via blackboard.
+\item This is not graded.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Possible Future Working tools}
+\begin{itemize}
+\item git
+\item make
+\item Android Development Tools
+\end{itemize}
+\end{frame}
+
+%\begin{frame}{Event Based Processor}
+%\begin{columns}[c]
+%\column{0.25\textwidth}
+%\begin{block}{OS driven Execution}
+    %\includegraphics[width=1.0\textwidth]{imgs/normproc.png}
+%\end{block}
+%\column{0.25\textwidth}
+%\begin{block}{Event Driven Execution}
+    %\includegraphics[width=1.0\textwidth]{diagrams/eventproc.png}
+%\end{block}
+%\column{0.5\textwidth}
+%\begin{itemize}
+    %\item Normal execution: kernel/software driven
+    %\item Event based : event driven
+    %\item Performance monitoring is event based
+    %\item Next task based on event not scheduled by kernel
+    %\item 5.92 times speedup for control dominated programs
+%\end{itemize}
+%\end{columns}
+%\end{frame}
+
+\end{document}
